@@ -1,0 +1,6 @@
+# ACM Small in ORG
+The Wiley Latex template in OrgMode, just type make. Be aware that
+this example is compatible with OrgMode 9.*. Earlier or later OrgMode
+versions may require minor modifications to the Makefile and/or the
+ORG file.  For a detailed explanation on why and how to write
+reproducible articles using OrgMode, please visit the following [[https://github.com/alegrand/RR_webinars/blob/master/1_replicable_article_laboratory_notebook/index.org][page]].

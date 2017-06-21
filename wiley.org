@@ -1,0 +1,172 @@
+# -*- coding: utf-8 -*-
+# -*- mode: org -*-
+
+#+TITLE: Title (appears only in the PDF properties)
+#+AUTHOR: Lucas Mello Schnorr
+
+#+STARTUP: overview indent
+#+LANGUAGE: pt-br
+#+OPTIONS: H:3 creator:nil timestamp:nil skip:nil toc:nil num:t ^:nil ~:~
+#+OPTIONS: author:nil title:nil date:nil
+#+TAGS: noexport(n) deprecated(d) ignore(i)
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+
+#+LATEX_CLASS: WILEY
+#+LATEX_CLASS_OPTIONS: [AMA]
+#+LATEX_HEADER: \usepackage[utf8]{inputenc}
+#+LATEX_HEADER: \usepackage[T1]{fontenc}
+
+# You need at least Org 9 and Emacs 24 to make this work.
+# If you do, just type make (thanks Luka Stanisic for this).
+# You'll also need to install texlive-publishers to get acmart.cls
+
+* WILEY configuration for org export + ignore tag (Start Here)     :noexport:
+
+#+begin_src emacs-lisp :results output :session :exports both
+(add-to-list 'load-path ".")
+(require 'ox-extra)
+(ox-extras-activate '(ignore-headlines))
+(add-to-list 'org-latex-classes
+             '("WILEY"
+               "\\documentclass{WileyNJD-v1}"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+#+end_src
+
+#+RESULTS:
+
+* *The Paper*                                                       :ignore:
+** Latex configurations                                             :ignore:
+#+BEGIN_EXPORT latex
+\articletype{Article Type}%
+\received{TBD}%{26 April 2016}
+\revised{TBD}%{6 June 2016}
+\accepted{TBD}%{6 June 2016}
+\raggedbottom
+#+END_EXPORT
+** Frontpage                                                        :ignore:
+#+BEGIN_EXPORT latex
+\title{This is the Real Title\protect\thanks{This is an example for title footnote.}}
+
+
+\author[1]{Lucas Mello Schnorr*}
+
+\author[2,3]{Author Two}
+
+\author[3]{Author Three}
+
+\authormark{MELLO SCHNORR \textsc{et al}}
+
+\address[1]{\orgdiv{Graduate Program in Computer Science}, \orgname{Universidade Federal do Rio Grande do Sul}, \orgaddress{\state{Rio Grande do Sul}, \country{Brazil}}}
+
+\address[2]{\orgdiv{Original Division}, \orgname{Original University}, \orgaddress{\state{State name}, \country{Country name}}}
+
+\address[3]{\orgdiv{Original Division}, \orgname{Original University}, \orgaddress{\state{State name}, \country{Country name}}}
+
+\corres{*Corresponding author name, This is sample corresponding address. \email{schnorr@inf.ufrgs.br}}
+
+\presentaddress{This is sample for present address text this is sample for present address text}
+#+END_EXPORT
+
+*** Abstract                                                       :ignore:
+
+#+LaTeX: \abstract[Summary]{
+
+Put the abstract here.
+
+#+LaTeX: }
+
+*** Keywords                                                       :ignore:
+#+BEGIN_EXPORT latex
+\keywords{keyword1, keyword2, keyword3, keyword4}
+#+END_EXPORT
+*** Journal Citation                                               :ignore:
+#+BEGIN_EXPORT latex
+\jnlcitation{\cname{%
+\author{Williams K.}, 
+\author{B. Hoskins}, 
+\author{R. Lee}, 
+\author{G. Masato}, and 
+\author{T. Woollings}} (\cyear{2016}), 
+\ctitle{A regime analysis of Atlantic winter jet variability applied to evaluate HadGEM3-GC2}, \cjournal{Q.J.R. Meteorol. Soc.}, \cvol{2017;00:1--6}.}
+#+END_EXPORT
+*** Maketitle                                                      :ignore:
+#+LaTeX: \maketitle
+** Introduction
+
+This is just an example to show how Orgmode\cite{orgmode} can be
+neatly used to write papers following the Wiley latex style. Feel
+free to modify and distributed this as you wish.
+
+Be aware that this example is compatible with OrgMode 9.*. Earlier
+or later OrgMode versions require minor modifications to the Makefile
+and/or llncs.org files.
+
+For a detailed explanation on why and how to write reproducible
+articles using OrgMode, please visit the following [[https://github.com/alegrand/RR_webinars/blob/master/1_replicable_article_laboratory_notebook/index.org][page]].
+
+** Background and Experimental Context
+\label{sec.context}
+*** Background
+\label{sec.background}
+*** Experimental Context and Workload Details
+\label{sec.setup}
+** Related Work and Motivation
+\label{sec.relatedwork}
+
+Check this paper\cite{schnorr2013visualizing} about how you need to
+semantically aggregate data.
+
+** Your Great Contribution to Computer Science
+\label{sec.proposal}
+** Your Super Results
+** Conclusion
+** Acknowledgments                                                  :ignore:
+
+#+LATEX:\section*{Acknowledgements}
+
+Who paid for this?
+
+** References                                                        :ignore:
+
+# See next section to understand how refs.bib file is created.
+
+#+LATEX: \bibliographystyle{plain}
+#+LATEX: \bibliography{refs}
+
+* Bib file is here                                                 :noexport:
+
+Tangle this file with C-c C-v t
+
+#+begin_src bib :tangle refs.bib
+@article{orgmode,
+  author =	"Eric Schulte and Dan Davison and Thomas Dye and Carsten Dominik",
+  title =	"A Multi-Language Computing Environment for Literate Programming and Reproducible Research",
+  journal =	"J. of Stat. Soft.",
+  volume =	"46",
+  number =	"3",
+  day =  	"25",
+  year = 	"2012",
+  CODEN =	"JSSOBK",
+  ISSN = 	"1548-7660",
+  bibdate =	"2011-10-03",
+  accepted =	"2011-10-03",
+  acknowledgement = "",
+  submitted =	"2010-12-22",
+}
+
+@incollection{schnorr2013visualizing,
+  title={Visualizing More Performance Data Than What Fits on Your Screen},
+  author={Schnorr, Lucas M and Legrand, Arnaud},
+  booktitle={Tools for High Performance Computing 2012},
+  pages={149--162},
+  year={2013},
+  publisher={Springer}
+}
+
+
+#+end_src
