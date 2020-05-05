@@ -13,7 +13,7 @@
 #+EXPORT_EXCLUDE_TAGS: noexport
 
 #+LATEX_CLASS: WILEY
-#+LATEX_CLASS_OPTIONS: [AMA]
+#+LATEX_CLASS_OPTIONS: [AMA,STIX1COL]
 #+LATEX_HEADER: \usepackage[utf8]{inputenc}
 #+LATEX_HEADER: \usepackage[T1]{fontenc}
 
