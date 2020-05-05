@@ -170,3 +170,18 @@ Tangle this file with C-c C-v t
 
 
 #+end_src
+* Emacs setup                                                      :noexport:
+
+# Local Variables:
+# eval: (add-to-list 'load-path ".")
+# eval: (require 'ox-extra)
+# eval: (ox-extras-activate '(ignore-headlines))
+# eval: (add-to-list 'org-latex-classes '("article" "\\documentclass{article}\n \[NO-DEFAULT-PACKAGES]\n \[EXTRA]\n"  ("\\section{%s}" . "\\section*{%s}") ("\\subsection{%s}" . "\\subsection*{%s}")                       ("\\subsubsection{%s}" . "\\subsubsection*{%s}")                       ("\\paragraph{%s}" . "\\paragraph*{%s}")                       ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+# eval: (add-to-list 'org-latex-classes '("WILEY" "\\documentclass{WileyNJD-v2}\n \[NO-DEFAULT-PACKAGES]\n \[EXTRA]\n"  ("\\section{%s}" . "\\section*{%s}")               ("\\subsection{%s}" . "\\subsection*{%s}")               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")               ("\\paragraph{%s}" . "\\paragraph*{%s}")               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+# eval: (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode -output-directory %o %f ; bibtex `basename %f | sed 's/\.tex//'` ; pdflatex -interaction nonstopmode -output-directory  %o %f ; pdflatex -interaction nonstopmode -output-directory %o %f"))
+# eval: (setq ispell-local-dictionary "american")
+# eval: (eval (flyspell-mode t))
+# eval: (setq org-latex-listings t)
+# End:
+
+
