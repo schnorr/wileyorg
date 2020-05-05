@@ -135,7 +135,7 @@ Who paid for this?
 
 # See next section to understand how refs.bib file is created.
 
-#+LATEX: \bibliographystyle{plain}
+#+LATEX: \bibliographystyle{WileyNJD-AMA}
 #+LATEX: \bibliography{refs}
 
 * Bib file is here                                                 :noexport:
