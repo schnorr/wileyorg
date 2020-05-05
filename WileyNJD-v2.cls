@@ -40,7 +40,6 @@
 \newif\if@AMArefstyle\global\@AMArefstylefalse%
 \newif\if@Vancouverrefstyle\global\@Vancouverrefstylefalse%
 \newif\if@Chemistryrefstyle\global\@Chemistryrefstylefalse%
-\newif\if@Harvardstyle\global\@Harvardstylefalse%
 
 \newif\if@STIXLargeOneCol\global\@STIXLargeOneColfalse%
 \newif\if@STIXSmall\global\@STIXSmallfalse%
@@ -65,8 +64,6 @@
 \DeclareOption{ACS}{\global\@Chemistryrefstyletrue}
 \DeclareOption{AMA}{\global\@AMArefstyletrue}
 \DeclareOption{VANCOUVER}{\global\@Vancouverrefstyletrue}
-
-\DeclareOption{HARVARD}{\global\@Harvardstyletrue}
 
 \DeclareOption{doublespace}{\global\@dblspacetrue}
 
@@ -260,9 +257,9 @@
 \rotfloatpagestyle{headings}%modified from plain to headings to get header and footer for sidewaystable%
 \RequirePackage{dblfloatfix}%
 \RequirePackage[figuresright]{rotating}%
-%\RequirePackage{longtable}%
+\RequirePackage{longtable}%
 %%\RequirePackage{threeparttable}%
-\RequirePackage[normalem]{ulem}%
+\RequirePackage{ulem}%
 \RequirePackage{enumerate}%
 \RequirePackage{soul}
 \usepackage{caption}
@@ -2712,13 +2709,6 @@ Volume\ \@jvol, Article ID\ \@artid, \thepage~pages\par%
 \setcitestyle{numbers,square}
  %  \renewcommand{\bibfont}{\reset@font\fontfamily{\rmdefault}\fontsize{8bp}{10}\selectfont\baselineskip=10\p@}%
 \else%
-\if@Harvardstyle%
-   \usepackage[authoryear]{natbib}%
-   \bibliographystyle{WileyNJD-Harvard}%
-   \bibpunct{(}{)}{,}{}{}{}%
-%\setcitestyle{numbers,square}
- %  \renewcommand{\bibfont}{\reset@font\fontfamily{\rmdefault}\fontsize{8bp}{10}\selectfont\baselineskip=10\p@}%
-\else%
 \if@APArefstyle
    \usepackage[natbibapa]{NJDapacite}%
    \bibliographystyle{WileyNJD-APA}%
@@ -2751,7 +2741,7 @@ Volume\ \@jvol, Article ID\ \@artid, \thepage~pages\par%
        \unskip, {#4}%      pages
      \fi}
    %%
-\fi\fi\fi\fi\fi\fi%
+\fi\fi\fi\fi\fi%
 
 
 %
